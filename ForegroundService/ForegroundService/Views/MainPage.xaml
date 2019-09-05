@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ForegroundService"
+             x:Class="ForegroundService.MainPage">
+
+    <StackLayout Padding="10">
+
+        <Label Margin="0,0,0,20" VerticalOptions="Center" HorizontalOptions="Center" 
+               Text="This is a foreground service sample project that starts a foreground service which displays integar numbers in a label even when app is killed and goes into the app when the notification is clicked"></Label>
+
+        <Button x:Name="StartBtn" Text="Start Service" Clicked="StartBtn_Clicked"></Button>
+        <Label x:Name="NumberLbl" TextColor="Red" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+        <Button x:Name="StopBtn" Text="Stop Service" Clicked="StopBtn_Clicked"></Button>
+    </StackLayout>
+
+</ContentPage>

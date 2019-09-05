@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ForegroundService.Views.MusicPlayer">
+    <StackLayout>
+        <Button x:Name="startBtn" Text="Start Service" BackgroundColor="Green" TextColor="White" Clicked="Start_Service"></Button>
+        <Button x:Name="StopBtn" Text="Stop Service" BackgroundColor="Red" TextColor="White" Clicked="Stop_Service"></Button>
+    </StackLayout>
+</ContentPage>
