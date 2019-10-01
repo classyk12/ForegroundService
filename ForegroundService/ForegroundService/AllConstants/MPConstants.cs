@@ -14,12 +14,14 @@ namespace ForegroundService.AllConstants
 
         public static string TAG_FOREGROUND_SERVICE = "FOREGROUND_SERVICE";
 
-        public static string ACTION_START = "ACTION_START_FOREGROUND_SERVICE";
+        public const string ACTION_START = "ACTION_START_FOREGROUND_SERVICE";
 
-         public static string ACTION_STOP = "ACTION_STOP_FOREGROUND_SERVICE";
+         public const string ACTION_STOP = "ACTION_STOP_FOREGROUND_SERVICE";
 
-        public static string ACTION_PAUSE = "ACTION_PAUSE";
+        public const string ACTION_PAUSE = "ACTION_PAUSE";
 
-        public static string ACTION_PLAY = "ACTION_PLAY";
+        public const string ACTION_PLAY = "ACTION_PLAY";
+
+        public const string BOOT_COMPLETED = "BOOT_COMPLETE_RESTART";
     }
 }

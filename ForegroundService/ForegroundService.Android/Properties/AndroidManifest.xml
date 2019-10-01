@@ -2,5 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" android:targetSdkVersion="27" />
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-	<application android:label="ForegroundService.Android"></application>
+  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+  
+	<application android:label="ForegroundService.Android">
+    <receiver android:name=".BootCompletedReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+      </intent-filter>
+    </receiver>
+    <service android:name=".MusicPlayer"/>
+ <activity 
+  android:name=".MainActivity"
+  android:launchMode="singleTop">
+ </activity>
+  </application>
 </manifest>

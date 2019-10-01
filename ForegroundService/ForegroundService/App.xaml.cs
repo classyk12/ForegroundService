@@ -12,7 +12,7 @@ namespace ForegroundService
         {
             InitializeComponent();
 
-            MainPage = new MusicPlayer();
+            MainPage = new NotificationPage();
         }
 
         protected override void OnStart()

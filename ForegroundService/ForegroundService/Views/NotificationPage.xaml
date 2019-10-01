@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ForegroundService.Views.NotificationPage">
+    <StackLayout VerticalOptions="Center">
+        <Button x:Name="StartBtn" TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" Clicked="StartBtn_Clicked"></Button>
+        <Button x:Name="UpdateBtn" BackgroundColor="DarkBlue" TextColor="White" 
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Clicked="UpdateBtn_Clicked" Text="Update Notification"></Button>
+    </StackLayout>
+    
+    
+</ContentPage>

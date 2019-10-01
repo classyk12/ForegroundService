@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using ForegroundService.AllConstants;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using ForegroundService.AllConstants;
+
 
 namespace ForegroundService.Droid.Services
 {
@@ -27,34 +27,57 @@ namespace ForegroundService.Droid.Services
         [return: GeneratedEnum]
         public override StartCommandResult OnStartCommand(Intent intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            if(intent != null)
+            if (intent != null)
             {
                 string action = intent.Action;
 
-                if(action == MPConstants.ACTION_START)
+                switch (action)
                 {
-                    startMyService();
-                    Toast.MakeText(this, "Service started!", ToastLength.Long).Show();
+                    case MPConstants.ACTION_START:
+                        startMyService();
+                        Toast.MakeText(this, "Foreground service is started.",ToastLength.Long).Show();
+                        break;
+                    case MPConstants.ACTION_STOP:
+                        StopMyService();
+                        Toast.MakeText(this, "Foreground service is stopped.", ToastLength.Long).Show();
+                        break;
+                    case MPConstants.ACTION_PLAY:
+                        Toast.MakeText(this, "You click Play button.", ToastLength.Long).Show();
+                        break;
+                    case MPConstants.ACTION_PAUSE:
+                        Toast.MakeText(this, "You click Pause button.", ToastLength.Long).Show();
+                        break;
+
+
                 }
 
-                else if( action == MPConstants.ACTION_STOP)
-                {
-                    StopMyService();
-                    Toast.MakeText(this, "Service stopped", ToastLength.Long).Show();
-                }
 
-                else if( action == MPConstants.ACTION_PLAY)
-                {
-                    Toast.MakeText(this, "You pressed Play", ToastLength.Long).Show();
-                }
 
-                else if( action == MPConstants.ACTION_PAUSE)
-                {
-                    Toast.MakeText(this, "You pressed pause", ToastLength.Long).Show();
-                }
+
+                //  if(action == MPConstants.ACTION_START)
+                //  {
+                //      startMyService();
+                //      Toast.MakeText(this, "Service started!", ToastLength.Long).Show();
+                //  }
+
+                //  else if( action == MPConstants.ACTION_STOP)
+                //  {
+                //      StopMyService();
+                //      Toast.MakeText(this, "Service stopped", ToastLength.Long).Show();
+                //  }
+
+                //  else if( action == MPConstants.ACTION_PLAY)
+                //  {
+                //      Toast.MakeText(this, "You pressed Play", ToastLength.Long).Show();
+                //  }
+
+                //else if(action == MPConstants.ACTION_PAUSE)
+                //  {
+                //      Toast.MakeText(this, "You pressed pause", ToastLength.Long).Show();
+                //  }
             }
-            //return StartCommandResult.Sticky;
-            return base.OnStartCommand(intent, flags, startId);
+            return StartCommandResult.Sticky;
+            //return base.OnStartCommand(intent, flags, startId);
         }
 
         private void StopMyService()
@@ -91,7 +114,7 @@ namespace ForegroundService.Droid.Services
             {
                 //create a notification channel. this is a must if your service is going to run on 
                 //Android 8.0(Oreo) and above
-                NotificationChannel channel = new NotificationChannel(MPConstants.CHANNEL_ID1, MPConstants.CHANNEL_NAME, NotificationImportance.Max);
+                NotificationChannel channel = new NotificationChannel(MPConstants.CHANNEL_ID1, MPConstants.CHANNEL_NAME, NotificationImportance.Default);
                 NotificationManager manager = GetSystemService(NotificationService) as NotificationManager;
 
                 if(manager != null)
@@ -105,7 +128,7 @@ namespace ForegroundService.Droid.Services
                 //make notification show big text
                 Notification.BigTextStyle BigStyle = new Notification.BigTextStyle();
                 BigStyle.SetBigContentTitle("This service is running in the foreground");
-                BigStyle.BigText("This is a music like foeground service that was built using some tutorial and some little tweaks");
+                BigStyle.BigText("This is a music like foreground service that was built using some tutorial and some little tweaks");
                 builder.SetStyle(BigStyle);
 
                 //build notification

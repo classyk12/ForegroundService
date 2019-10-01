@@ -1,4 +1,5 @@
 ﻿using ForegroundService.Models;
+using ForegroundService.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,11 @@ namespace ForegroundService
 
         private void StartBtn_Clicked(object sender, EventArgs e)
         {
+            //Navigation.PushAsync(new NotificationPage()); 
             var message = new StartForegroundService();
             MessagingCenter.Send(message, "StartRunningMessage");
             StartBtn.IsEnabled = false;
-            //HandleRecievedMessage();
+            ////HandleRecievedMessage();
         }
 
         private void HandleRecievedMessage()
